@@ -1,0 +1,81 @@
+.section {
+  border-top: 1px solid var(--border);
+  background: transparent;
+}
+[data-theme="light"] .section { background: transparent; }
+
+.cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.cols > div {
+  background: var(--bg);
+  padding: 1.75rem;
+}
+
+.colHead {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+.colDot   { width: 8px; height: 8px; flex-shrink: 0; }
+.colTitle { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; }
+
+.cards { display: flex; flex-direction: column; gap: 1rem; }
+
+.card {
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid;
+  background: rgba(77, 142, 255, 0.01);
+}
+
+.period {
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+.cardTitle {
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.15rem;
+}
+.place {
+  font-size: 0.73rem;
+  color: var(--text3);
+  margin-bottom: 0.6rem;
+}
+.cardDesc {
+  color: var(--text2);
+  font-size: 0.84rem;
+  line-height: 1.75;
+  margin-bottom: 0.65rem;
+}
+.stack {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.28rem 0.65rem;
+  border: 1px solid;
+}
+
+@media (max-width: 768px) {
+  .cols {
+    grid-template-columns: 1fr;
+    background: transparent;
+    border: none;
+  }
+  .cols > div {
+    border: 1px solid var(--border);
+    margin-bottom: 1rem;
+    padding: 1.25rem;
+  }
+}
