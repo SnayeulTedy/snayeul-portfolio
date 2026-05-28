@@ -1,236 +1,27 @@
-/* ─── RESET ─────────────────────────────────────────── */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  min-width: 0;
-  word-break: break-word;
-  overflow-wrap: break-word;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* ─── THEME VARIABLES ───────────────────────────────── */
+/* Variables CSS custom */
 :root {
-  --bg:       #060A12;
-  --bg2:      #060A12;
-  --surface:  #0D1526;
-  --surf2:    #111E35;
-  --border:   rgba(77,142,255,0.15);
-  --bord2:    rgba(77,142,255,0.30);
-  --text:     #F0F4FF;
-  --text2:    #A0AECF;
-  --text3:    #5A6A9A;
-  --blue:     #4D8EFF;
-  --blue2:    #99C2FF;
-  --blue-bg:  rgba(77,142,255,0.10);
-  --blue-bd:  rgba(77,142,255,0.30);
-  --green:    #34d399;
-  --purple:   #7C5CFC;
-  --cyan:     #06B6D4;
-  --emerald:  #10B981;
+  --blue:    #4D8EFF;
+  --green:   #34d399;
+  --purple:  #7C5CFC;
+  --cyan:    #06B6D4;
+  --emerald: #10B981;
 }
 
-[data-theme="light"] {
-  --bg:       #F0F4FF;
-  --bg2:      #F0F4FF;
-  --surface:  #FFFFFF;
-  --surf2:    #EBF0FF;
-  --border:   rgba(11,94,215,0.15);
-  --bord2:    rgba(11,94,215,0.30);
-  --text:     #0A1628;
-  --text2:    #2A3A5A;
-  --text3:    #6A7A9A;
-  --blue:     #0B5ED7;
-  --blue2:    #052C65;
-  --blue-bg:  rgba(11,94,215,0.08);
-  --blue-bd:  rgba(11,94,215,0.25);
-}
-
-/* ─── BASE ───────────────────────────────────────────── */
-html {
-  scroll-behavior: smooth;
-  font-size: 17px;
-  font-family: "Space Mono", monospace;
-  overflow-x: hidden;
-  max-width: 100%;
-}
-
-body {
-  font-family: "Space Mono", monospace;
-  font-size: 1rem;
-  line-height: 1.8;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  max-width: 100%;
-  overflow-x: hidden;
-  background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 32px 32px;
-  background-attachment: fixed;
-  transition: background-color 0.35s, color 0.35s;
-}
-
-/* ─── OVERFLOW FIX ───────────────────────────────────── */
-img, video, canvas, svg {
-  max-width: 100%;
-  display: block;
-}
-
-.mono {
-  font-family: "Space Mono", monospace;
-  word-break: break-word;
-  overflow-wrap: break-word;
-}
-
-/* ─── SCROLLBAR ──────────────────────────────────────── */
-::-webkit-scrollbar        { width: 4px; }
-::-webkit-scrollbar-track  { background: var(--bg); }
-::-webkit-scrollbar-thumb  { background: var(--blue); border-radius: 2px; }
-
-/* ─── TYPOGRAPHY ─────────────────────────────────────── */
-h1 {
-  font-family: "Space Mono", monospace;
-  font-size: clamp(2.5rem, 6vw, 5.5rem);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-}
-h2 {
-  font-family: "Space Mono", monospace;
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  font-weight: 700;
-  line-height: 1.2;
-}
-h3 {
-  font-family: "Space Mono", monospace;
-  font-size: 1.15rem;
-  font-weight: 700;
-}
-p {
-  font-family: "Space Mono", monospace;
-  font-size: 0.95rem;
-  line-height: 1.9;
-  color: var(--text2);
-}
-a {
-  font-family: "Space Mono", monospace;
-}
-strong {
-  color: var(--text);
-  font-weight: 700;
-}
-label, input, textarea, button, select {
-  font-family: "Space Mono", monospace;
-}
-
-/* ─── LAYOUT ─────────────────────────────────────────── */
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 5.5rem 2rem;
-  overflow: hidden;
-}
-
-section, [id] {
-  background: transparent;
-}
-
-.section-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
-  overflow: hidden;
-}
-.section-header__num {
-  font-family: "Space Mono", monospace;
-  font-size: 0.75rem;
-  color: var(--blue);
-  opacity: 0.8;
-  flex-shrink: 0;
-}
-.section-header__title {
-  font-family: "Space Mono", monospace;
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: -0.02em;
-  white-space: nowrap;
-}
-.section-header__line {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(to right, var(--border), transparent);
-  min-width: 20px;
-}
-
-/* ─── BUTTONS ────────────────────────────────────────── */
-.btn-blue {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--blue);
-  color: #fff;
-  padding: 0.8rem 1.75rem;
-  font-family: "Space Mono", monospace;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  white-space: nowrap;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
-  transition: opacity 0.2s, transform 0.2s;
-}
-.btn-blue:hover { opacity: 0.85; transform: translateY(-1px); }
-
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: transparent;
-  color: var(--text);
-  padding: 0.8rem 1.75rem;
-  font-family: "Space Mono", monospace;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  border: 1px solid var(--bord2);
-  cursor: pointer;
-  text-decoration: none;
-  white-space: nowrap;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
-  transition: border-color 0.2s, color 0.2s, transform 0.2s;
-}
-.btn-ghost:hover {
-  border-color: var(--blue);
-  color: var(--blue);
-  transform: translateY(-1px);
-}
-
-/* ─── TAGS ───────────────────────────────────────────── */
-.tag {
-  font-family: "Space Mono", monospace;
-  font-size: 0.65rem;
-  padding: 0.15rem 0.55rem;
-  border: 1px solid var(--border);
-  color: var(--text3);
-  white-space: nowrap;
-  transition: border-color 0.2s, color 0.2s;
-}
-
-/* ─── RESPONSIVE ─────────────────────────────────────── */
-@media (max-width: 768px) {
-  html { font-size: 15px; }
-  .container { padding: 3.5rem 1.25rem; }
-  .section-header__title { font-size: 1.15rem; }
-  p { font-size: 0.9rem; }
-  .btn-blue, .btn-ghost {
-    font-size: 0.75rem;
-    padding: 0.7rem 1.25rem;
+/* Police mono partout */
+* { 
+    font-family: "Space Mono", monospace; 
+    text-align: justify;
+    /* font-size: 16px; */
   }
-}
+
+/* Scrollbar */
+::-webkit-scrollbar       { width: 4px; }
+::-webkit-scrollbar-track { background: #060A12; }
+::-webkit-scrollbar-thumb { background: #4D8EFF; border-radius: 2px; }
+
+/* Scroll smooth */
+html { scroll-behavior: smooth; }

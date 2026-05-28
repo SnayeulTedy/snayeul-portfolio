@@ -12,7 +12,7 @@ export default function App() {
   const { dark, toggle } = useTheme();
 
   return (
-    <>
+    <div className="bg-gray-900 min-h-screen text-white">
       <Navbar dark={dark} onToggleTheme={toggle} />
       <main>
         <HeroSection dark={dark} />
@@ -23,6 +23,6 @@ export default function App() {
         <ContactSection />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
