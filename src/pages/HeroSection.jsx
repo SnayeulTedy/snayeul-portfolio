@@ -125,7 +125,7 @@ export default function HeroSection({ dark }) {
 
           {/* Nom */}
           <h1 className="mb-5 leading-none tracking-tighter">
-            <span className="block text-white font-mono font-bold"
+            <span className={`block font-mono font-bold ${dark ? "text-white" : "text-[#0A1628]"}`}
               style={{ fontSize: "clamp(3rem,7vw,6.5rem)" }}>
               SNAYEUL
             </span>
@@ -140,13 +140,13 @@ export default function HeroSection({ dark }) {
           </h1>
 
           {/* Rôle */}
-          <div className="flex items-center gap-3 mb-5 font-mono text-xs text-gray-400 tracking-widest">
+          <div className={`flex items-center gap-3 mb-5 font-mono text-xs tracking-widest ${dark ? "text-gray-400" : "text-gray-500"}`}>
             <div className="w-8 h-px bg-blue-500 shrink-0" />
             FULL-STACK · JAVA · SPRING BOOT · REACT · ANGULAR
           </div>
 
           {/* Description */}
-          <p className="font-mono text-sm text-gray-400 leading-relaxed max-w-md mb-8">
+          <p className={`font-mono text-sm leading-relaxed max-w-md mb-8 ${dark ? "text-gray-400" : "text-gray-600"}`}>
             Étudiant ingénieur en formation au CESI. Je transforme des idées 
             en applications fiables et élégantes, 
             avec une attention particulière pour les architectures modernes.
@@ -164,7 +164,7 @@ export default function HeroSection({ dark }) {
               </svg>
             </a>
             <a href="#contact"
-              className="flex items-center gap-2 bg-transparent text-white font-mono text-xs font-bold uppercase tracking-wider px-6 py-3 border border-blue-500/40 hover:border-blue-400 hover:text-blue-400 transition-colors"
+              className={`flex items-center gap-2 bg-transparent font-mono text-xs font-bold uppercase tracking-wider px-6 py-3 border border-blue-500/40 hover:border-blue-400 hover:text-blue-400 transition-colors ${dark ? "text-white" : "text-[#0A1628]"}`}
               style={{ clipPath: "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)" }}>
               Contact
             </a>

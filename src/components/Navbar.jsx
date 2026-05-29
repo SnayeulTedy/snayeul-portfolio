@@ -27,16 +27,20 @@ export default function Navbar({ dark, onToggleTheme }) {
   return (
     <>
       {/* ── BARRE DE NAVIGATION ── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-stretch justify-between h-14 bg-[#060A12]/90 border-b border-blue-500/20 backdrop-blur-md">
+      <nav className={`fixed top-0 left-0 right-0 z-50 flex items-stretch justify-between h-14 border-b border-blue-500/20 backdrop-blur-md transition-colors duration-300
+        ${dark
+          ? "bg-[#060A12]/90 text-white"
+          : "bg-[#F0F4FF]/90 text-[#0A1628]"
+        }`}>
 
         {/* Logo */}
-        <a href="#hero" className="flex items-center font-mono font-bold text-white text-base px-6 border-r border-blue-500/20 hover:text-blue-400 transition-colors">
+        <a href="#hero" className="flex items-center font-mono font-bold text-base px-6 border-r border-blue-500/20 hover:text-blue-400 transition-colors">
           Snayeul<span className="text-blue-400">_</span>Dev
         </a>
 
         {/* Liens desktop */}
         {!isMobile && (
-          <ul className="flex flex-2 list-none m-0 p-0 ">
+          <ul className="flex flex-1 list-none m-0 p-0">
             {NAV_LINKS.map((link, i) => (
               <li key={link.id}>
                 <a
@@ -44,10 +48,10 @@ export default function Navbar({ dark, onToggleTheme }) {
                   className={`flex items-center gap-1 px-4 h-full font-mono text-xs font-semibold uppercase tracking-wider border-r border-blue-500/20 transition-colors
                     ${activeId === link.id
                       ? "text-blue-400 bg-blue-500/10"
-                      : "text-gray-400 hover:text-white hover:bg-blue-500/10"
+                      : `hover:text-blue-400 hover:bg-blue-500/10 ${dark ? "text-gray-400" : "text-gray-500"}`
                     }`}
                 >
-                  <span className="text-gray-600 text-[10px]">0{i + 1}</span>
+                  <span className="text-gray-500 text-[10px]">0{i + 1}</span>
                   {link.label}
                 </a>
               </li>
@@ -57,10 +61,12 @@ export default function Navbar({ dark, onToggleTheme }) {
 
         {/* Actions droite */}
         <div className="flex items-stretch border-l border-blue-500/20">
+
           {/* Toggle thème */}
           <button
             onClick={onToggleTheme}
-            className="px-4 text-gray-400 hover:text-white hover:bg-blue-500/10 border-r border-blue-500/20 transition-colors text-base"
+            className={`px-4 border-r border-blue-500/20 hover:bg-blue-500/10 transition-colors text-base
+              ${dark ? "text-gray-400 hover:text-white" : "text-gray-500 hover:text-blue-500"}`}
           >
             {dark ? "☀" : "🌙"}
           </button>
@@ -82,9 +88,9 @@ export default function Navbar({ dark, onToggleTheme }) {
               onClick={() => setDrawer(true)}
               className="flex flex-col justify-center gap-1 px-4 bg-transparent border-none cursor-pointer"
             >
-              <span className="block w-4 h-px bg-gray-400" />
-              <span className="block w-4 h-px bg-gray-400" />
-              <span className="block w-4 h-px bg-gray-400" />
+              <span className={`block w-4 h-px ${dark ? "bg-gray-400" : "bg-gray-500"}`} />
+              <span className={`block w-4 h-px ${dark ? "bg-gray-400" : "bg-gray-500"}`} />
+              <span className={`block w-4 h-px ${dark ? "bg-gray-400" : "bg-gray-500"}`} />
             </button>
           )}
         </div>
@@ -100,16 +106,17 @@ export default function Navbar({ dark, onToggleTheme }) {
           />
 
           {/* Panneau */}
-          <aside className="fixed top-0 right-0 bottom-0 z-50 w-64 bg-[#0F1628] border-l border-blue-500/30 flex flex-col">
+          <aside className={`fixed top-0 right-0 bottom-0 z-50 w-64 border-l border-blue-500/30 flex flex-col transition-colors duration-300
+            ${dark ? "bg-[#0F1628]" : "bg-white"}`}>
 
             {/* En-tête */}
-            <div className="flex justify-between items-center px-5 py-4 border-b border-blue-500/20">
-              <span className="font-mono font-bold text-white">
+            <div className={`flex justify-between items-center px-5 py-4 border-b border-blue-500/20`}>
+              <span className="font-mono font-bold">
                 Snayeul<span className="text-blue-400">_</span>Dev
               </span>
               <button
                 onClick={() => setDrawer(false)}
-                className="w-7 h-7 flex items-center justify-content border border-blue-500/30 text-gray-400 hover:text-white text-sm"
+                className="w-7 h-7 flex items-center justify-center border border-blue-500/30 text-gray-400 hover:text-blue-400 text-sm transition-colors"
               >
                 ✕
               </button>
@@ -125,10 +132,10 @@ export default function Navbar({ dark, onToggleTheme }) {
                   className={`flex items-center gap-3 px-5 py-3 font-mono text-sm font-semibold border-l-2 transition-colors
                     ${activeId === link.id
                       ? "text-blue-400 border-blue-400 bg-blue-500/10"
-                      : "text-gray-400 border-transparent hover:text-blue-400 hover:bg-blue-500/10"
+                      : "border-transparent hover:text-blue-400 hover:bg-blue-500/10 text-gray-400"
                     }`}
                 >
-                  <span className="text-gray-600 text-xs  text-center">0{i + 1}</span>
+                  <span className="text-gray-500 text-xs">0{i + 1}</span>
                   {link.label}
                 </a>
               ))}
@@ -145,7 +152,8 @@ export default function Navbar({ dark, onToggleTheme }) {
               </a>
               <button
                 onClick={onToggleTheme}
-                className="py-2 bg-[#151E35] border border-blue-500/30 text-gray-400 font-mono text-xs font-semibold hover:text-white transition-colors"
+                className={`py-2 border border-blue-500/30 font-mono text-xs font-semibold hover:text-blue-400 transition-colors
+                  ${dark ? "bg-[#151E35] text-gray-400" : "bg-gray-100 text-gray-500"}`}
               >
                 {dark ? "☀ Mode clair" : "🌙 Mode sombre"}
               </button>

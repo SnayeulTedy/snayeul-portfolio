@@ -8,17 +8,15 @@ export function useTheme() {
   });
 
   useEffect(() => {
-    const theme = dark ? "dark" : "light";
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
+    if (dark) {
+      document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
+    } else {
+      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
+    }
+    localStorage.setItem("theme", dark ? "dark" : "light");
   }, [dark]);
-
-  // Initialiser le thème au montage
-  useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    const initialTheme = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-    document.documentElement.setAttribute("data-theme", initialTheme);
-  }, []);
 
   const toggle = () => setDark((d) => !d);
   return { dark, toggle };

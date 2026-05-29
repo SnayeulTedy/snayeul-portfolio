@@ -12,17 +12,17 @@ export default function App() {
   const { dark, toggle } = useTheme();
 
   return (
-    <div className="bg-gray-900 min-h-screen text-white">
+    <div className={`min-h-screen transition-colors duration-300 ${dark ? "bg-[#060A12] text-white" : "bg-[#F0F4FF] text-[#0A1628]"}`}>
       <Navbar dark={dark} onToggleTheme={toggle} />
       <main>
         <HeroSection dark={dark} />
-        <AboutSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <ParcoursSection />
-        <ContactSection />
+        <AboutSection dark={dark} />
+        <SkillsSection dark={dark} />
+        <ProjectsSection dark={dark} />
+        <ParcoursSection dark={dark} />
+        <ContactSection dark={dark} />
       </main>
-      <Footer />
+      <Footer dark={dark} />
     </div>
   );
 }
