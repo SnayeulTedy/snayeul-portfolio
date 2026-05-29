@@ -147,9 +147,10 @@ export default function HeroSection({ dark }) {
 
           {/* Description */}
           <p className="font-mono text-sm text-gray-400 leading-relaxed max-w-md mb-8">
-            Étudiant ingénieur au CESI. 3 stages en production —
-            microservices, React, Angular. Mobile sur toute la France,
-            disponible dès septembre 2026.
+            Étudiant ingénieur en formation au CESI. Je transforme des idées 
+            en applications fiables et élégantes, 
+            avec une attention particulière pour les architectures modernes.
+            Mobile sur toute la France, disponible dès septembre 2026.
           </p>
 
           {/* Boutons */}
@@ -172,13 +173,13 @@ export default function HeroSection({ dark }) {
           {/* Stats */}
           <div className="flex border border-blue-500/20">
             {[
-              { num: "3",   label: "STAGES"  },
-              { num: "5+",  label: "PROJETS" },
-              { num: "10+", label: "TECHNOS" },
+              { num: "2+",   label: "EXPERIENCES"  },
+              { num: "3+",  label: "PROJETS" },
+              { num: "5+", label: "TECHNOLOGIES" },
             ].map((s, i) => (
               <div key={s.label}
                 className={`px-5 py-2.5 text-center ${i > 0 ? "border-l border-blue-500/20" : ""}`}>
-                <div className="font-mono font-bold text-blue-400 text-2xl leading-none">{s.num}</div>
+                <div className="font-mono font-bold text-blue-400 text-2xl leading-none text-center">{s.num}</div>
                 <div className="font-mono text-gray-600 text-[10px] uppercase tracking-widest mt-1">{s.label}</div>
               </div>
             ))}

@@ -78,7 +78,7 @@ export default function AboutSection() {
             <p className="font-mono text-sm text-gray-400 leading-relaxed mb-4 break-words">
               Je suis <strong className="text-blue-400 font-bold">Snayeul Tedonzon</strong>, étudiant ingénieur au{" "}
               <strong className="text-blue-400 font-bold">CESI École d'Ingénieurs</strong>. Développeur full-stack
-              avec expérience en production — microservices Java/Spring Boot, React, Angular.
+              avec expérience en production — microservices Java/Spring Boot, React, Angular et ASP.NET.
             </p>
             <p className="font-mono text-sm text-gray-400 leading-relaxed mb-4 break-words">
               3 stages dont un en alternance chez ZubHub (France).

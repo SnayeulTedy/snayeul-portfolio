@@ -128,7 +128,7 @@ export default function Navbar({ dark, onToggleTheme }) {
                       : "text-gray-400 border-transparent hover:text-blue-400 hover:bg-blue-500/10"
                     }`}
                 >
-                  <span className="text-gray-600 text-xs">0{i + 1}</span>
+                  <span className="text-gray-600 text-xs  text-center">0{i + 1}</span>
                   {link.label}
                 </a>
               ))}
