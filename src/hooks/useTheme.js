@@ -8,9 +8,17 @@ export function useTheme() {
   });
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
-    localStorage.setItem("theme", dark ? "dark" : "light");
+    const theme = dark ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
   }, [dark]);
+
+  // Initialiser le thème au montage
+  useEffect(() => {
+    const saved = localStorage.getItem("theme");
+    const initialTheme = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", initialTheme);
+  }, []);
 
   const toggle = () => setDark((d) => !d);
   return { dark, toggle };

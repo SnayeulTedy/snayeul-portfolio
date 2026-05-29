@@ -243,8 +243,8 @@ export default function HeroSection({ dark }) {
               className="absolute -top-4 -right-5 z-20 bg-[#060A12] border border-blue-500/30 px-3 py-2 font-mono"
               style={{ transform: `translateY(${-fY}px)` }}
             >
-              <div className="text-gray-600 text-[10px] uppercase tracking-widest">STACK</div>
-              <div className="text-blue-400 text-sm font-bold mt-0.5">Java · React</div>
+              <div className="text-gray-600 text-[10px] uppercase tracking-widest">DEVELOPPEUR</div>
+              <div className="text-blue-400 text-sm font-bold mt-0.5">FULL-STACK</div>
             </div>
           </div>
         </div>

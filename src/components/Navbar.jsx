@@ -12,7 +12,7 @@ const NAV_LINKS = [
   { label: "Contact",  id: "contact"  },
 ];
 
-const CV_URL = "/CVPro_TEDONZON SNAYEUL.pdf";
+const CV_URL = "/CV_TEDONZON_SNAYEUL.pdf";
 
 // ─── COMPOSANT ──────────────────────────────────────────
 export default function Navbar({ dark, onToggleTheme }) {
@@ -27,7 +27,7 @@ export default function Navbar({ dark, onToggleTheme }) {
   return (
     <>
       {/* ── BARRE DE NAVIGATION ── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-stretch justify-between h-13 bg-[#060A12]/90 border-b border-blue-500/20 backdrop-blur-md">
+      <nav className="fixed top-0 left-0 right-0 z-50 flex items-stretch justify-between h-14 bg-[#060A12]/90 border-b border-blue-500/20 backdrop-blur-md">
 
         {/* Logo */}
         <a href="#hero" className="flex items-center font-mono font-bold text-white text-base px-6 border-r border-blue-500/20 hover:text-blue-400 transition-colors">
